@@ -52,7 +52,7 @@ module "service_plan" {
 module "app_service" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=app_service/v1.0.0"
   app_service_name = "serkrakowapp"
-  app_service_plan_id = service_plan.app_service_plan.id
+  app_service_plan_id = module.service_plan.app_service_plan.id
   app_settings = {}
   identity_client_id = "82e6e687-206b-46b8-9301-2d09fd20816a"
   identity_id = "82e6e687-206b-46b8-9301-2d09fd20816a"
