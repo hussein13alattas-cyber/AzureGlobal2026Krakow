@@ -18,3 +18,15 @@ terraform {
     key                  = "terraform.tfstate"
   }
 }
+
+module "keyvault" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=keyvault/v1.0.0"
+  keyvault_name = "Keyvalut"
+
+  network_acls = object({})
+
+ resource_group = object({
+    location = "Poland Central"
+    name     = "rg-user5"
+  })
+}
