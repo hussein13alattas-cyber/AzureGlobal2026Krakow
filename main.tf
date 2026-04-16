@@ -35,8 +35,6 @@ network_acls = {
 
 }
 
-
-
 module "service_plan" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=service_plan/v2.0.0"
   app_service_plan_name = "Serviceplanresource"
@@ -48,5 +46,24 @@ module "service_plan" {
   tags = {
     environment = "SP"
   }
+
+}
+
+module "app_service" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=app_service/v1.0.0"
+  app_service_name = "serkrakowapp"
+  app_service_plan_id = service_plan.app_service_plan.id
+  app_settings = {}
+  identity_client_id = "82e6e687-206b-46b8-9301-2d09fd20816a"
+  identity_id = "82e6e687-206b-46b8-9301-2d09fd20816a"
+  resource_group = {
+    location = "PolandCentral"
+    name     = "rg-user5"
+  }
+
+
+
+
+
 
 }
