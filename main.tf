@@ -53,13 +53,12 @@ module "service_plan" {
 module "managed_identity" {
   source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=managed_identity/v1.0.0"
   name = "NewmanagedID"
- resource_group = {
+  resource_group = {
     location = "PolandCentral"
     name     = "rg-user5"
   }
  tags = {
-  new = "MI
- 
+  new = "MI"
 }
 
 
