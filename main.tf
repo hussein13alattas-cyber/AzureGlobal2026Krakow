@@ -59,6 +59,8 @@ module "managed_identity" {
   }
  tags = {
   new = "MI"
+ }
+
 }
 
 
