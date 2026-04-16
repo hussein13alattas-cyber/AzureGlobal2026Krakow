@@ -34,3 +34,19 @@ network_acls = {
 }
 
 }
+
+
+
+module "service_plan" {
+  source = "git::https://github.com/pchylak/global_azure_2026_ccoe.git?ref=service_plan/v2.0.0"
+  app_service_plan_name = "Serviceplanresource"
+  resource_group = {
+    location = "PolandCentral"
+    name     = "rg-user5"
+  }
+  sku_name = "B3"
+  tags = {
+    environment = "SP"
+  }
+
+}
